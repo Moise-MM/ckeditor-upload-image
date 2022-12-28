@@ -20,3 +20,4 @@ Route::get('/',[ProductController::class,'index'])->name('product.index');
 Route::post('/upload_image',[ProductController::class, 'uploadImage'])->name('upload');
 Route::post('/save',[ProductController::class, 'store'])->name('store');
 Route::get('/all',[ProductController::class, 'all'])->name('all');
+Route::get('/product/{id}',[ProductController::class, 'show'])->name('product.show');

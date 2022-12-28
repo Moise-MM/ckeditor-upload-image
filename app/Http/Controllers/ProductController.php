@@ -59,10 +59,22 @@ class ProductController extends Controller
     }
 
 
+    /**
+     * show all products
+     *
+     */
     public function all()
     {
         $products = Product::latest()->get();
 
         return view('products.all',compact('products'));
+    }
+
+
+    public function show(int $id)
+    {
+        $product = Product::findOrfail($id);
+
+        return view('products.show',compact('product'));
     }
 }
