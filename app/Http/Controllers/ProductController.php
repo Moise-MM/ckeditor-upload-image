@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -16,6 +17,11 @@ class ProductController extends Controller
     }
 
 
+    /**
+     * upload image from ckeditor
+     *
+     * @param Request $request
+     */
     public function uploadImage(Request $request)
     {
         //check if an image file is uploaded
@@ -36,5 +42,19 @@ class ProductController extends Controller
             echo $response;
             
         }
+    }
+
+
+
+    /**
+     * Store data in database
+     *
+     * @param Request $request
+     */
+    public function store(Request $request)
+    {
+        $datas = $request->all();
+        Product::create($datas);
+        return redirect(route('product.index'))->with('flash_message','New Product Added !');
     }
 }

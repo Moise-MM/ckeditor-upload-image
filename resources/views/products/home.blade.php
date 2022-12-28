@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-md-12">
                 <h1 class="text-center">Upload Image Using CKeditor</h1>
-                <form method="POST" action="" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('store') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label>Title</label>
@@ -25,6 +25,11 @@
                     </div>
                 </form>
             </div>
+            @if (Session::has('flash_message'))
+                <div class="alert alert-success">
+                    <h3>{{ Session::get('flash_message') }}</h3>
+                </div>
+            @endif
         </div>
     </div>
 
