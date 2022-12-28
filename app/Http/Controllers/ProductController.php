@@ -57,4 +57,12 @@ class ProductController extends Controller
         Product::create($datas);
         return redirect(route('product.index'))->with('flash_message','New Product Added !');
     }
+
+
+    public function all()
+    {
+        $products = Product::latest()->get();
+
+        return view('products.all',compact('products'));
+    }
 }

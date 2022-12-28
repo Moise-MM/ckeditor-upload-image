@@ -19,3 +19,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[ProductController::class,'index'])->name('product.index');
 Route::post('/upload_image',[ProductController::class, 'uploadImage'])->name('upload');
 Route::post('/save',[ProductController::class, 'store'])->name('store');
+Route::get('/all',[ProductController::class, 'all'])->name('all');
